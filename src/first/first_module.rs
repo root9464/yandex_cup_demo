@@ -1,7 +1,6 @@
 use std::io;
 
-#[path = "../utils/input.rs"]
-mod input;
+use crate::input;
 
 pub fn jewelry_search() -> io::Result<i32> {
     let stones: String = input::read_input("Камни: ");

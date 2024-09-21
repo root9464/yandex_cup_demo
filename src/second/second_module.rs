@@ -1,8 +1,7 @@
+use crate::input;
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-#[path = "../utils/input.rs"]
-mod input;
 /// Функция для вычисления времени, когда Алексей проснётся
 pub fn alarm_clock(x: i32, k: usize, times: Vec<i32>) -> i32 {
     let mut pq: BinaryHeap<Reverse<i32>> = BinaryHeap::new();
@@ -32,17 +31,17 @@ pub fn alarm_clock(x: i32, k: usize, times: Vec<i32>) -> i32 {
 /// Функция для чтения входных данных
 pub fn read_input_data() -> (i32, usize, Vec<i32>) {
     // Чтение первой строки — количества будильников, интервала и количества звонков для пробуждения
-    let first_line = input::read_input("Введите количество будильников, интервал и количество звонков для пробуждения (через пробел):");
+    let first_line: String = input::read_input("Введите количество будильников, интервал и количество звонков для пробуждения (через пробел):");
     let first_line: Vec<i32> = first_line
         .split_whitespace()
         .map(|x| x.parse().unwrap())
         .collect();
-    let n = first_line[0] as usize; // Количество будильников (N)
-    let x = first_line[1]; // Интервал между звонками (X)
-    let k = first_line[2] as usize; // Количество звонков для пробуждения (K)
+    let n: usize = first_line[0] as usize; // Количество будильников (N)
+    let x: i32 = first_line[1]; // Интервал между звонками (X)
+    let k: usize = first_line[2] as usize; // Количество звонков для пробуждения (K)
 
     // Чтение второй строки — моментов времени будильников
-    let times_line = input::read_input("Введите моменты времени для каждого будильника:");
+    let times_line: String = input::read_input("Введите моменты времени для каждого будильника:");
     let times: Vec<i32> = times_line
         .split_whitespace()
         .map(|x| x.parse().unwrap())
